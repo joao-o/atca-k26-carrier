@@ -1,0 +1,184 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.4522",
+   "Default View_TopLeft":"-201,-11",
+   "Display-PortTypeClock":"true",
+   "Display-PortTypeOthers":"true",
+   "Display-PortTypeReset":"true",
+   "ExpandedHierarchyInLayout":"",
+   "Interfaces View_Layers":"/zynq_ultra_ps_e_0_pl_resetn0:false|/zynq_ultra_ps_e_0_pl_clk0:false|/proc_sys_reset_0_peripheral_reset:false|/adc_deser_clk_gen_clk_out1:false|/adc_mod_interface_ob_0_acq_clk_n:false|/adc_deser_clk_gen_clk_out2:false|/adc_mod_interface_ob_0_acq_clk_p:false|",
+   "Interfaces View_ScaleFactor":"0.768908",
+   "Interfaces View_TopLeft":"-290,22",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layers":"/zynq_ultra_ps_e_0_pl_resetn0:true|/zynq_ultra_ps_e_0_pl_clk0:true|/proc_sys_reset_0_peripheral_reset:true|",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_sdo -pg 1 -lvl 4 -x 1270 -y 400 -defaultsOSRD
+preplace port port-id_nCS -pg 1 -lvl 4 -x 1270 -y 340 -defaultsOSRD
+preplace port port-id_sclk -pg 1 -lvl 4 -x 1270 -y 600 -defaultsOSRD
+preplace port port-id_pll_reset -pg 1 -lvl 4 -x 1270 -y 620 -defaultsOSRD
+preplace port port-id_mod_sck_test_p -pg 1 -lvl 4 -x 1270 -y 60 -defaultsOSRD
+preplace port port-id_mod_sck_test_n -pg 1 -lvl 4 -x 1270 -y 80 -defaultsOSRD
+preplace port port-id_mod_sdi_test_p -pg 1 -lvl 4 -x 1270 -y 100 -defaultsOSRD
+preplace port port-id_mod_sdi_test_n -pg 1 -lvl 4 -x 1270 -y 120 -defaultsOSRD
+preplace port port-id_aclk_n -pg 1 -lvl 4 -x 1270 -y 160 -defaultsOSRD
+preplace port port-id_aclk_p -pg 1 -lvl 4 -x 1270 -y 140 -defaultsOSRD
+preplace port port-id_hb_led -pg 1 -lvl 4 -x 1270 -y 640 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 630 -y 170 -swap {0 3 2 1} -defaultsOSRD -pinBusDir pl_ps_irq0 left -pinBusY pl_ps_irq0 30L -pinDir pl_resetn0 right -pinY pl_resetn0 90R -pinDir pl_clk0 right -pinY pl_clk0 50R -pinDir pl_clk1 right -pinY pl_clk1 30R
+preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -x 170 -y 220 -swap {7 8 2 3 4 0 1 9 5 6} -defaultsOSRD -pinDir slowest_sync_clk right -pinY slowest_sync_clk 100R -pinDir ext_reset_in right -pinY ext_reset_in 120R -pinDir aux_reset_in left -pinY aux_reset_in 20L -pinDir mb_debug_sys_rst left -pinY mb_debug_sys_rst 40L -pinDir dcm_locked left -pinY dcm_locked 60L -pinDir mb_reset right -pinY mb_reset 20R -pinBusDir bus_struct_reset right -pinBusY bus_struct_reset 40R -pinBusDir peripheral_reset right -pinBusY peripheral_reset 140R -pinBusDir interconnect_aresetn right -pinBusY interconnect_aresetn 60R -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 80R
+preplace inst vio_0 -pg 1 -lvl 3 -x 1110 -y 240 -defaultsOSRD -pinDir clk left -pinY clk 20L -pinBusDir probe_in0 left -pinBusY probe_in0 40L -pinBusDir probe_out0 right -pinBusY probe_out0 20R
+preplace inst system_ila_0 -pg 1 -lvl 3 -x 1110 -y 380 -swap {0 8 5 3 4 1 2 6 7} -defaultsOSRD -pinDir clk left -pinY clk 20L -pinBusDir probe0 left -pinBusY probe0 160L -pinBusDir probe1 left -pinBusY probe1 100L -pinBusDir probe2 right -pinBusY probe2 20R -pinBusDir probe3 left -pinBusY probe3 80L -pinBusDir probe4 left -pinBusY probe4 40L -pinBusDir probe5 left -pinBusY probe5 60L -pinBusDir probe6 left -pinBusY probe6 120L -pinBusDir probe7 left -pinBusY probe7 140L
+preplace inst io_test_buffer_bank_0 -pg 1 -lvl 3 -x 1110 -y 40 -swap {1 0 2 3 4 5 6 7} -defaultsOSRD -pinDir clk left -pinY clk 120L -pinDir rst left -pinY rst 100L -pinDir sck_p right -pinY sck_p 20R -pinDir sck_n right -pinY sck_n 40R -pinDir sdi_p right -pinY sdi_p 60R -pinDir sdi_n right -pinY sdi_n 80R -pinDir aclk_p right -pinY aclk_p 100R -pinDir aclk_n right -pinY aclk_n 120R
+preplace inst heartbeat_gen_0 -pg 1 -lvl 2 -x 630 -y 600 -defaultsOSRD -pinDir clk left -pinY clk 20L -pinDir rst left -pinY rst 40L -pinDir pwm right -pinY pwm 20R
+preplace inst si53xx_spi_interface_0 -pg 1 -lvl 2 -x 630 -y 400 -swap {0 1 2 3 4 5 6 8 7 9} -defaultsOSRD -pinDir clk left -pinY clk 20L -pinDir reset left -pinY reset 40L -pinDir read left -pinY read 60L -pinDir write left -pinY write 80L -pinDir rw_addr left -pinY rw_addr 100L -pinBusDir indata left -pinBusY indata 120L -pinBusDir outdata right -pinBusY outdata 20R -pinDir nCS right -pinY nCS 60R -pinDir sdio right -pinY sdio 40R -pinDir sclk right -pinY sclk 80R
+preplace netloc Net 1 1 2 350 360 950
+preplace netloc heartbeat_gen_0_pwm 1 2 2 890 640 NJ
+preplace netloc io_test_buffer_bank_0_aclk_n 1 3 1 NJ 160
+preplace netloc io_test_buffer_bank_0_aclk_p 1 3 1 NJ 140
+preplace netloc io_test_buffer_bank_0_sck_n 1 3 1 NJ 80
+preplace netloc io_test_buffer_bank_0_sck_p 1 3 1 NJ 60
+preplace netloc io_test_buffer_bank_0_sdi_n 1 3 1 NJ 120
+preplace netloc io_test_buffer_bank_0_sdi_p 1 3 1 NJ 100
+preplace netloc si5396a_spi_writer_0_nCS 1 2 2 930 340 NJ
+preplace netloc si5396a_spi_writer_0_sclk 1 2 2 970 600 NJ
+preplace netloc si5396a_spi_writer_0_sdo 1 3 1 NJ 400
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 1 2 370 320 970
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 3 NJ 340 910 620 NJ
+levelinfo -pg 1 0 170 630 1110 1270
+pagesize -pg 1 -db -bbox -sgen 0 0 1440 700
+",
+   "No Loops_ScaleFactor":"0.486958",
+   "No Loops_TopLeft":"-201,21",
+   "Reduced Jogs_Layers":"/proc_sys_reset_0_peripheral_reset:true|/adc_deser_clk_gen_clk_out1:true|/adc_mod_interface_ob_0_acq_clk_n:true|/zynq_ultra_ps_e_0_pl_resetn0:true|/adc_deser_clk_gen_clk_out2:true|/zynq_ultra_ps_e_0_pl_clk0:true|/adc_mod_interface_ob_0_acq_clk_p:true|",
+   "Reduced Jogs_ScaleFactor":"0.312274",
+   "Reduced Jogs_TopLeft":"-314,-234",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_nCS -pg 1 -lvl 6 -x 2240 -y 620 -defaultsOSRD
+preplace port port-id_sclk -pg 1 -lvl 6 -x 2240 -y 640 -defaultsOSRD
+preplace port port-id_adc_sck_p -pg 1 -lvl 6 -x 2240 -y 1030 -defaultsOSRD
+preplace port port-id_adc_sck_n -pg 1 -lvl 6 -x 2240 -y 1050 -defaultsOSRD
+preplace port port-id_adc_sdi_p -pg 1 -lvl 6 -x 2240 -y 990 -defaultsOSRD
+preplace port port-id_adc_sdi_n -pg 1 -lvl 6 -x 2240 -y 1010 -defaultsOSRD
+preplace port port-id_acq_clk_n -pg 1 -lvl 6 -x 2240 -y 1130 -defaultsOSRD
+preplace port port-id_acq_clk_p -pg 1 -lvl 6 -x 2240 -y 1110 -defaultsOSRD
+preplace port port-id_LED0 -pg 1 -lvl 6 -x 2240 -y 740 -defaultsOSRD
+preplace port port-id_sdio -pg 1 -lvl 6 -x 2240 -y 430 -defaultsOSRD
+preplace port port-id_adc_cnvst_p -pg 1 -lvl 6 -x 2240 -y 1070 -defaultsOSRD
+preplace port port-id_adc_cnvst_n -pg 1 -lvl 6 -x 2240 -y 1090 -defaultsOSRD
+preplace port port-id_SOM_DEJIT_CLK1_p -pg 1 -lvl 6 -x 2240 -y 870 -defaultsOSRD
+preplace port port-id_SOM_DEJIT_CLK1_n -pg 1 -lvl 6 -x 2240 -y 890 -defaultsOSRD
+preplace port port-id_CLK_DEJIT_OUT3_p -pg 1 -lvl 0 -x 0 -y 310 -defaultsOSRD
+preplace port port-id_CLK_DEJIT_OUT3_n -pg 1 -lvl 0 -x 0 -y 330 -defaultsOSRD
+preplace port port-id_PLL_LOS_Xon -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
+preplace port port-id_PLL_LOLAn -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port port-id_PLL_LOLBn -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_CLK_3B_LOS -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port port-id_CLK_1A_EN -pg 1 -lvl 6 -x 2240 -y 80 -defaultsOSRD
+preplace port port-id_CLK_1B_EN -pg 1 -lvl 6 -x 2240 -y 120 -defaultsOSRD
+preplace port port-id_CLK_2A_EN -pg 1 -lvl 6 -x 2240 -y 160 -defaultsOSRD
+preplace port port-id_CLK_2B_EN -pg 1 -lvl 6 -x 2240 -y 220 -defaultsOSRD
+preplace port port-id_CLK_3A_R -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_CLK_3A_EN -pg 1 -lvl 6 -x 2240 -y 280 -defaultsOSRD
+preplace port port-id_CLK_1A_D -pg 1 -lvl 6 -x 2240 -y 60 -defaultsOSRD
+preplace port port-id_CLK_1B_D -pg 1 -lvl 6 -x 2240 -y 100 -defaultsOSRD
+preplace port port-id_CLK_2A_D -pg 1 -lvl 6 -x 2240 -y 140 -defaultsOSRD
+preplace port port-id_CLK_2B_D -pg 1 -lvl 6 -x 2240 -y 200 -defaultsOSRD
+preplace port port-id_CLK_3A_D -pg 1 -lvl 6 -x 2240 -y 260 -defaultsOSRD
+preplace port port-id_CLK_1A_R -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port port-id_CLK_2A_R -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_CLK_1B_R -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace port port-id_CLK_2B_R -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_LED1 -pg 1 -lvl 6 -x 2240 -y 340 -defaultsOSRD
+preplace port port-id_LED2 -pg 1 -lvl 6 -x 2240 -y 360 -defaultsOSRD
+preplace port port-id_LED3 -pg 1 -lvl 6 -x 2240 -y 380 -defaultsOSRD
+preplace port port-id_PS_PCIE_RST_LS -pg 1 -lvl 6 -x 2240 -y 400 -defaultsOSRD
+preplace port port-id_I2C_SDA -pg 1 -lvl 6 -x 2240 -y 320 -defaultsOSRD
+preplace port port-id_I2C_SCL -pg 1 -lvl 6 -x 2240 -y 300 -defaultsOSRD
+preplace port port-id_ATCA_BASE_CH_SEL -pg 1 -lvl 6 -x 2240 -y 40 -defaultsOSRD
+preplace port port-id_ADC_RESET -pg 1 -lvl 6 -x 2240 -y 20 -defaultsOSRD
+preplace port port-id_RTM_B43_HD6p -pg 1 -lvl 6 -x 2240 -y 470 -defaultsOSRD
+preplace port port-id_RTM_B43_HD6n -pg 1 -lvl 6 -x 2240 -y 450 -defaultsOSRD
+preplace portBus pll_reset -pg 1 -lvl 6 -x 2240 -y 180 -defaultsOSRD
+preplace portBus adc_sdo_cha_p -pg 1 -lvl 0 -x 0 -y 510 -defaultsOSRD
+preplace portBus adc_sdo_cha_n -pg 1 -lvl 0 -x 0 -y 530 -defaultsOSRD
+preplace portBus adc_sdo_chb_p -pg 1 -lvl 0 -x 0 -y 550 -defaultsOSRD
+preplace portBus adc_sdo_chb_n -pg 1 -lvl 0 -x 0 -y 570 -defaultsOSRD
+preplace portBus ADC_CHOP -pg 1 -lvl 6 -x 2240 -y 240 -defaultsOSRD
+preplace portBus RTM_HPL_p -pg 1 -lvl 6 -x 2240 -y 550 -defaultsOSRD
+preplace portBus RTM_HPL_n -pg 1 -lvl 6 -x 2240 -y 570 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 280 -y 790 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 4 -x 1560 -y 790 -defaultsOSRD
+preplace inst VIO -pg 1 -lvl 5 -x 1990 -y 150 -defaultsOSRD
+preplace inst heartbeat_gen_0 -pg 1 -lvl 5 -x 1990 -y 740 -defaultsOSRD
+preplace inst adc_deser_clk_gen -pg 1 -lvl 2 -x 730 -y 680 -defaultsOSRD
+preplace inst adc_mod_interface_ob_0 -pg 1 -lvl 5 -x 1990 -y 1060 -defaultsOSRD
+preplace inst adc_data_slicer_0 -pg 1 -lvl 4 -x 1560 -y 240 -defaultsOSRD
+preplace inst si53xx_spi_interface_0 -pg 1 -lvl 4 -x 1560 -y 460 -defaultsOSRD
+preplace inst io_buffer_wrapper_0 -pg 1 -lvl 5 -x 1990 -y 420 -defaultsOSRD
+preplace inst adc_sdo_diff_buf_0 -pg 1 -lvl 2 -x 730 -y 540 -defaultsOSRD
+preplace inst ad4003_deserializer_0 -pg 1 -lvl 3 -x 1130 -y 530 -defaultsOSRD
+preplace inst rtm_iobuf_ds_0 -pg 1 -lvl 5 -x 1990 -y 550 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 5 -x 1990 -y 870 -defaultsOSRD
+preplace inst util_ds_buf_1 -pg 1 -lvl 1 -x 280 -y 310 -defaultsOSRD
+preplace netloc Net 1 5 1 NJ 430
+preplace netloc VIO_probe_out5 1 3 3 1380 150 1740J 320 2150
+preplace netloc VIO_probe_out6 1 5 1 NJ 180
+preplace netloc VIO_probe_out7 1 2 4 950 660 NJ 660 NJ 660 2200
+preplace netloc VIO_probe_out8 1 2 4 940 670 NJ 670 NJ 670 2190
+preplace netloc ad4003_deserializer_0_adc_data 1 3 1 1310 240n
+preplace netloc ad4003_deserializer_0_cnvst 1 3 2 1340J 590 1760
+preplace netloc ad4003_deserializer_0_sck 1 3 2 1300J 610 1750
+preplace netloc ad4003_deserializer_0_sdi 1 3 2 1320J 600 1770
+preplace netloc adc_data_slicer_0_data_out_1 1 4 1 1750 150n
+preplace netloc adc_data_slicer_0_data_out_2 1 4 1 1760 170n
+preplace netloc adc_data_slicer_0_data_out_3 1 4 1 1790 190n
+preplace netloc adc_data_slicer_0_data_out_4 1 4 1 1800 210n
+preplace netloc adc_deser_clk_gen_clk_out1 1 2 3 920 680 NJ 680 1740
+preplace netloc adc_deser_clk_gen_clk_out2 1 2 1 930 510n
+preplace netloc adc_mod_interface_ob_0_acq_clk_n 1 5 1 NJ 1130
+preplace netloc adc_mod_interface_ob_0_acq_clk_p 1 5 1 NJ 1110
+preplace netloc adc_mod_interface_ob_0_cnvst_n 1 5 1 NJ 1090
+preplace netloc adc_mod_interface_ob_0_cnvst_p 1 5 1 NJ 1070
+preplace netloc adc_mod_interface_ob_0_sck_n 1 5 1 NJ 1050
+preplace netloc adc_mod_interface_ob_0_sck_p 1 5 1 NJ 1030
+preplace netloc adc_mod_interface_ob_0_sdi_n 1 5 1 NJ 1010
+preplace netloc adc_mod_interface_ob_0_sdi_p 1 5 1 NJ 990
+preplace netloc adc_sdo_cha_n_1 1 0 2 NJ 530 NJ
+preplace netloc adc_sdo_cha_p_1 1 0 2 NJ 510 NJ
+preplace netloc adc_sdo_chb_n_1 1 0 2 NJ 570 NJ
+preplace netloc adc_sdo_chb_p_1 1 0 2 NJ 550 NJ
+preplace netloc adc_sdo_diff_buf_0_adc_sdo_cha 1 2 1 N 530
+preplace netloc adc_sdo_diff_buf_0_adc_sdo_chb 1 2 1 N 550
+preplace netloc heartbeat_gen_0_pwm 1 5 1 NJ 740
+preplace netloc io_buffer_wrapper_0_buf_in 1 3 3 1380 580 1820J 350 2150
+preplace netloc proc_sys_reset_0_peripheral_reset 1 4 1 1830 750n
+preplace netloc si53xx_spi_interface_0_in_en 1 4 1 1830 430n
+preplace netloc si53xx_spi_interface_0_nCS 1 4 2 1790J 630 2220J
+preplace netloc si53xx_spi_interface_0_readdata 1 4 1 1780 130n
+preplace netloc si53xx_spi_interface_0_sclk 1 4 2 1780J 640 NJ
+preplace netloc si53xx_spi_interface_0_sdo 1 4 1 1800 410n
+preplace netloc vio_0_probe_out0 1 3 3 1350 130 1770J 300 2220
+preplace netloc vio_0_probe_out1 1 3 3 1370 140 1820J 310 2170
+preplace netloc vio_0_probe_out2 1 3 3 1340 330 NJ 330 2180
+preplace netloc vio_0_probe_out3 1 3 3 1360 340 NJ 340 2160
+preplace netloc vio_0_probe_out4 1 2 4 960 650 NJ 650 NJ 650 2210
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 1 4 540 750 NJ 750 1330 690 1810
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 3 N 770 NJ 770 NJ
+preplace netloc VIO_probe_out9 1 5 1 NJ 240
+preplace netloc Net1 1 5 1 NJ 550
+preplace netloc Net2 1 5 1 NJ 570
+preplace netloc util_ds_buf_0_OBUF_DS_P 1 5 1 NJ 870
+preplace netloc util_ds_buf_0_OBUF_DS_N 1 5 1 NJ 890
+preplace netloc CLK_DEJIT_OUT3_p_1 1 0 1 NJ 310
+preplace netloc CLK_DEJIT_OUT3_n_1 1 0 1 NJ 330
+levelinfo -pg 1 0 280 730 1130 1560 1990 2240
+pagesize -pg 1 -db -bbox -sgen -200 0 2440 1190
+"
+}
+{
+   "da_board_cnt":"1",
+   "da_clkrst_cnt":"2",
+   "da_sys_mgmt_wiz_cnt":"1",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}
