@@ -59,17 +59,17 @@ module ad4003_deserializer(
     always @(*) begin
     
         case(cyc_state) // state transition table
-            RESET:  next_state = cyc_cntr==6'd0 ? (rst==1) ? RESET_CNVH : RW_CNVH : RESET;
-            RESET_CNVH : next_state = cyc_cntr==6'd16 ? RESET: RESET_CNVH;
-            TURBO_QUIET1: next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? TURBO_DATA : TURBO_QUIET1;
-            TURBO_DATA:   next_state = (rst==1)? RESET: cyc_cntr==6'd34 ? TURBO_QUIET2 : TURBO_DATA;
-            TURBO_QUIET2: next_state = (rst==1)? RESET: cyc_cntr==6'd0 ? TURBO_QUIET1 : TURBO_QUIET2;
-            RW_CNVH: next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? force_read ? DATA_R : force_write ? DATA_W : data_written ? DATA_R : DATA_W : RW_CNVH;
-            DATA_R: next_state = (rst==1)? RESET: cyc_cntr==6'd0 ? force_read || force_write ? RW_CNVH : TURBO_QUIET1 : DATA_R;
-            DATA_W: next_state = (rst==1)? RESET: cyc_cntr==6'd0 ? force_read || force_write ? IDLE_CNVH : RW_CNVH : DATA_W;
-            IDLE_CNVH: next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? IDLE: IDLE_CNVH;
-            IDLE: next_state = (rst==1)? RESET: cyc_cntr==6'd0 ? IDLE_CNVH: IDLE;
-            default: next_state = RESET; 
+            RESET:          next_state = cyc_cntr==6'd0  ? (rst==1) ? RESET_CNVH : RW_CNVH : RESET;
+            RESET_CNVH :    next_state = cyc_cntr==6'd16 ? RESET: RESET_CNVH;
+            TURBO_QUIET1:   next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? TURBO_DATA : TURBO_QUIET1;
+            TURBO_DATA:     next_state = (rst==1)? RESET: cyc_cntr==6'd34 ? TURBO_QUIET2 : TURBO_DATA;
+            TURBO_QUIET2:   next_state = (rst==1)? RESET: cyc_cntr==6'd0  ? TURBO_QUIET1 : TURBO_QUIET2;
+            RW_CNVH:        next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? force_read ? DATA_R : force_write ? DATA_W : data_written ? DATA_R : DATA_W : RW_CNVH;
+            DATA_R:         next_state = (rst==1)? RESET: cyc_cntr==6'd0  ? force_read || force_write ? RW_CNVH : TURBO_QUIET1 : DATA_R;
+            DATA_W:         next_state = (rst==1)? RESET: cyc_cntr==6'd0  ? force_read || force_write ? IDLE_CNVH : RW_CNVH : DATA_W;
+            IDLE_CNVH:      next_state = (rst==1)? RESET: cyc_cntr==6'd16 ? IDLE: IDLE_CNVH;
+            IDLE:           next_state = (rst==1)? RESET: cyc_cntr==6'd0  ? IDLE_CNVH: IDLE;
+            default:        next_state = RESET; 
         endcase
     
     end

@@ -33,13 +33,11 @@ module si53xx_spi_interface(
     input sdi,
     output reg sdo,
     output  reg in_en,
-    output sclk
+    output sclk,
+    output reg [9:0] rom_addr,
+    input  [15:0] rom_data
     );
     
-    reg [9:0] addr;
-    wire [15:0] data;
-    
-    si5396a_config_mem config_rom ( addr , data );
     
     wire [7:0] write_command,read_command;
     reg [2:0] spi_bit;
@@ -106,7 +104,7 @@ module si53xx_spi_interface(
         case (state)
         RESET: begin
             spi_clk_gen<=0;
-            addr <= 10'h000;
+            rom_addr <= 10'h000;
             spi_bit <= 4'h0;
             spi_byte <= 3'h5;
             reset_timer <= 32'd0;
@@ -120,7 +118,7 @@ module si53xx_spi_interface(
                     if (spi_byte==0) begin
                             spi_byte<=3'h5;
                             spi_bit<=4'h0;
-                            addr<=addr+1;
+                            rom_addr<=rom_addr+1;
                     end else begin
                         spi_bit<=spi_bit-1;
                         if(spi_bit==0)
