@@ -58,9 +58,9 @@ module si53xx_spi_interface(
                 in_en=1'b0;
                 case(spi_byte)
                     4'h4: sdo=1'b0; // set addr command 0000 xxxx 
-                    4'h3: sdo=data[8+spi_bit]; // addr
+                    4'h3: sdo=rom_data[8+spi_bit]; // addr
                     4'h2: sdo=writedata[spi_bit]; // write data command 010x xxxx
-                    4'h1: sdo=data[spi_bit]; // data
+                    4'h1: sdo=rom_data[spi_bit]; // data
                     default: sdo=1'b0;
                 endcase
             end
@@ -91,7 +91,7 @@ module si53xx_spi_interface(
         
         case(state)
             RESET:    next_state = reset ? RESET :( read ? READ : (write ? WRITE : AUTO));
-            AUTO:     next_state = reset ? RESET :( addr == 10'd614 ? DONE : AUTO);
+            AUTO:     next_state = reset ? RESET :( rom_addr == 10'd614 ? DONE : AUTO);
             READ:     next_state = reset ? RESET :( spi_byte == 4'd0 ? DONE : READ);
             WRITE:    next_state = reset ? RESET :( spi_byte == 4'd0 ? DONE : WRITE);
             DONE:     next_state = reset ? RESET : DONE;
