@@ -1037,7 +1037,7 @@ Port;FD4A0000;FD4AFFFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD05000
   # Create instance: pll_config_rom, and set properties
   set pll_config_rom [ create_bd_cell -type ip -vlnv xilinx.com:ip:dist_mem_gen:8.0 pll_config_rom ]
   set_property -dict [list \
-    CONFIG.coefficient_file [pwd]{/src/Si5396-RevA-TEST1-Registers.coe} \
+    CONFIG.coefficent_file [pwd]{/src/Si5396-RevA-TEST1-Registers.coe} \
     CONFIG.depth {608} \
     CONFIG.memory_type {rom} \
   ] $pll_config_rom
