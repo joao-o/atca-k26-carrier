@@ -8,7 +8,7 @@ if [ ! -f pre-commit ]; then
     cat << 'EOF' > pre-commit
 #!/bin/sh
 
-sed -i -e 's|coefficient_file.*/src|coefficent_file [pwd]{/src|' project.tcl
+sed -i -e 's|coefficient_file.*/src|coefficient_file [pwd]{/src|' project.tcl
 
 EOF
 chmod +x pre-commit
