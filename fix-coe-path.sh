@@ -8,8 +8,11 @@ if [ ! -f pre-commit ]; then
     cat << 'EOF' > pre-commit
 #!/bin/sh
 
+if [ -n "$(git status -s -uno | grep -v '^ ' | grep project.tcl)" ]
+then
 sed -i -e 's|coefficient_file.*/src|coefficient_file [pwd]/src|' -e 's/coe}/coe/' project.tcl
 git add project.tcl
+fi
 
 EOF
 chmod +x pre-commit
