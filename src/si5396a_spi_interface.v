@@ -11,7 +11,8 @@
 // Tool Versions: 
 // Description: implements part of the si53xx pll spi communication protocol, 
 //              can source config data from a ROM and flash it all at once
-// 
+//              refer to  Si5397/96 Reference Manual
+//              
 // Dependencies: 
 // 
 // Revision:
@@ -35,14 +36,14 @@ module si53xx_spi_interface(
     output reg in_en,
     output sclk,
     output reg [9:0] rom_addr,
-    input  [15:0] rom_data
+    input  [15:0] rom_data,
+    output done
     );
     
     reg [7:0] sdo_reg;
     reg [3:0] spi_bit;
     reg [1:0] spi_byte;
     reg [6:0] spi_clk_gen;
-    reg [31:0] reset_timer;
     
     assign read_data = sdo_reg;
     
@@ -65,6 +66,8 @@ module si53xx_spi_interface(
         endcase
     end
     
+    assign done = state==DONE;
+    
     
     always @(posedge clk) begin
         case (state)
@@ -73,7 +76,6 @@ module si53xx_spi_interface(
             rom_addr <= 10'h000;
             spi_bit <= 4'h9;
             spi_byte <= 2'h3;
-            reset_timer <= 32'd0;
         end 
         AUTO:begin
         spi_clk_gen<= spi_clk_gen+1'b1;
