@@ -34,3 +34,4 @@
 # exclude generated project folder
 atca_k26_carrier_base/*
 *swp
+vivado*
