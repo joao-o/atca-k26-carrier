@@ -22,11 +22,15 @@
 
 module adc_data_slicer(
     input [863:0]data_in,
+    output [17:0] data_out_1a,
+    output [35:18] data_out_1b,
     output [215:0]data_out_1,
     output [215:0]data_out_2,
     output [215:0]data_out_3,
     output [215:0]data_out_4
     );
+    assign data_out_1a=data_in[17:0];
+    assign data_out_1b=data_in[17:0];
     assign data_out_1=data_in[215:0];
     assign data_out_2=data_in[431:216];
     assign data_out_3=data_in[647:432];
