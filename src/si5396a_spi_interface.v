@@ -47,7 +47,7 @@ module si53xx_spi_interface(
     
     assign read_data = sdo_reg;
     
-    parameter RESET=0,AUTO=1,READ=2,WRITE=3,DONE=4;
+    parameter RESET=3'd0,AUTO=3'd1,READ=3'd2,WRITE=3'd3,DONE=3'd4;
     
     reg [2:0] state,next_state;
     
@@ -66,7 +66,7 @@ module si53xx_spi_interface(
         endcase
     end
     
-    assign done = state==DONE;
+    
     
     
     always @(posedge clk) begin
@@ -74,13 +74,13 @@ module si53xx_spi_interface(
         RESET: begin
             spi_clk_gen<=0;
             rom_addr <= 10'h000;
-            spi_bit <= 4'h9;
+            spi_bit <= 4'h8;
             spi_byte <= 2'h3;
         end 
         AUTO:begin
         spi_clk_gen<= spi_clk_gen+1'b1;
             if (spi_clk_gen==7'h7f) begin  // change data @falling edge of clock
-                if(spi_bit==4'd9) begin
+                if(spi_bit==4'd8) begin
                     case(spi_byte)
                         2'h3: sdo_reg <= set_addr;
                         2'h2: sdo_reg <= rom_data[15:8];
@@ -93,7 +93,7 @@ module si53xx_spi_interface(
                     in_en<=1'b0;
                     sdo_reg<={sdo_reg[6:0],1'b0};
                 end else begin
-                    spi_bit<=4'h9;
+                    spi_bit<=4'h8;
                     if (spi_byte==2'b0) begin
                         rom_addr<=rom_addr+1;
                         spi_byte<=2'h3;
@@ -106,7 +106,7 @@ module si53xx_spi_interface(
         READ:begin
             spi_clk_gen<= spi_clk_gen+1'b1;
             if (spi_clk_gen==7'h7f) begin
-                if(spi_bit==4'd9) begin
+                if(spi_bit==4'd8) begin
                     case(spi_byte)
                         2'h3: sdo_reg <= set_addr;
                         2'h2: sdo_reg <= rw_addr;
@@ -124,7 +124,7 @@ module si53xx_spi_interface(
                         sdo_reg<={sdo_reg[6:0],1'b0};
                     end
                 end else begin
-                    spi_bit<=4'h9;
+                    spi_bit<=4'h8;
                     spi_byte<=spi_byte-1;
                 end
             end
@@ -132,7 +132,7 @@ module si53xx_spi_interface(
         WRITE:begin
             spi_clk_gen<= spi_clk_gen+1'b1;
             if (spi_clk_gen==7'h7f) begin
-                if(spi_bit==4'd9) begin
+                if(spi_bit==4'd8) begin
                     case(spi_byte)
                         2'h3: sdo_reg <= set_addr;
                         2'h2: sdo_reg <= rw_addr;
@@ -145,17 +145,17 @@ module si53xx_spi_interface(
                     in_en<=1'b0;
                     sdo_reg<={sdo_reg[6:0],1'b0};
                 end else begin
-                    spi_bit<=4'h9;
+                    spi_bit<=4'h8;
                     spi_byte<=spi_byte-1;
                 end
             end
         end
         DONE:begin
-            spi_bit<=4'h9;
+            spi_bit<=4'h8;
             spi_clk_gen<=0;
         end 
         default: begin
-            spi_bit<=4'h9;
+            spi_bit<=4'h8;
             spi_clk_gen<=0;
         end
         endcase
@@ -163,7 +163,8 @@ module si53xx_spi_interface(
     end
     
     assign sclk = spi_clk_gen[6];
-    assign nCS = (spi_bit==4'h9 ? 1:0);
+    assign nCS = (spi_bit==4'h8 ? 1:0);
     assign sdo = sdo_reg[7];
+    assign done = state==DONE ? 1'b1:1'b0;
     
 endmodule

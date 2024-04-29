@@ -25,7 +25,9 @@ module pll_spi_tester_tb(
     );
     
     reg clk,reset;
-    wire if_reset,read,write,addr,data,sdo,nCS,sck,done,pll_reset,rdata;
+    wire if_reset,read,write,sdo,nCS,sck,done,pll_reset;
+    wire [7:0] rdata,addr,data;
+    
     
      si53xx_spi_interface iface (.clk(clk),
                               .reset(if_reset),
@@ -38,7 +40,8 @@ module pll_spi_tester_tb(
                               .sclk(sck),
                               .sdi(1'b1),
                               .read_data(rdata),
-                              .rom_data(16'h1616));
+                              .rom_data(16'h1616),
+                              .done(done));
                               
      pll_spi_tester dut (
         .reset(reset),
