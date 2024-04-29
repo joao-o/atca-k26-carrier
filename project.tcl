@@ -1,5 +1,5 @@
 #*****************************************************************************************
-# Vivado (TM) v2023.1 (64-bit)
+# ivado (TM) v2023.1 (64-bit)
 #
 # project.tcl: Tcl script for re-creating project 'atca_k26_carrier_base'
 #
@@ -1184,7 +1184,7 @@ proc create_hier_cell_PLL_interface { parentCell nameHier } {
   # Create instance: pll_config_rom, and set properties
   set pll_config_rom [ create_bd_cell -type ip -vlnv xilinx.com:ip:dist_mem_gen:8.0 pll_config_rom ]
   set_property -dict [list \
-    CONFIG.coefficient_file {/home/joao/phd/vivado_projects/atca-k26-carrier/src/Si5396-RevA-TEST1-Registers.coe} \
+    CONFIG.coefficient_file [pwd]/src/Si5396-RevA-TEST1-Registers.coe \
     CONFIG.depth {608} \
     CONFIG.memory_type {rom} \
   ] $pll_config_rom
