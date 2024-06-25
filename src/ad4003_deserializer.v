@@ -28,6 +28,7 @@ module ad4003_deserializer(
     input [24:1]adc_sdo_chb,
     input force_read,
     input force_write,
+    output reader_en_sync,
     output cnvst,
     output sdi,
     output sck,
@@ -54,7 +55,7 @@ module ad4003_deserializer(
     reg data_written;
     initial data_written=1'b0;
     
-    wire reader_en,reader_en_sync;
+    wire reader_en;
     
     always @(*) begin
     
